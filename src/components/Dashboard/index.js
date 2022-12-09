@@ -17,7 +17,8 @@ const Dashboard = () => {
 
     const [state, dispatch] = useReducer(reducer, {
         messages: [],
-        error: null
+        error: null,
+        answer: []
     });
 
     useEffect(() => {
@@ -36,7 +37,17 @@ const Dashboard = () => {
             }
             dispatch(action)
         })
-    });
+    },[]);
+
+    const addNewMessage = (data) => {
+        const action = {
+            type: 'SEND_MESSAGE',
+            message: {
+                body: data,
+                user
+        }}
+        dispatch(action);
+    }
 
     return (
         <UserContext.Provider value={user}>
@@ -45,7 +56,7 @@ const Dashboard = () => {
                 <DialoList />
                 <div className={styles['chat-wrapper']}>
                     <Chat messages={state.messages}/>
-                    <MessageArea />
+                    <MessageArea sendMessage={addNewMessage}/>
                 </div>
             </main>
         </UserContext.Provider>

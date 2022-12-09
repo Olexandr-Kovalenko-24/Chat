@@ -1,3 +1,28 @@
 .container {
     background-color: seashell;
 }
+
+.form-wrapper {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+}
+
+.input {
+    flex-grow: 1;
+    height: 15vh;
+    margin-right: 10px;
+    border: none;
+    border-radius: 8px;
+}
+
+.submit-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 2.5rem;
+}
+
+.submit-btn:hover {
+  color: red;
+}

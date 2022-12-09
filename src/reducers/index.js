@@ -1,3 +1,5 @@
+import { act } from "react-dom/test-utils";
+
 export const reducer = (state, action) => {
     switch(action.type) {
         case 'DATA_LOAD_SUCCESS': {
@@ -13,6 +15,18 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 error
+            }
+        }
+        case 'SEND_MESSAGE':{
+            const {message: {body, user}} = action;
+            const newArrayMessage = [...state.messages, {
+                body,
+                user,
+                id: state.messages.length
+            }]
+            return {
+                ...state,
+                messages: newArrayMessage
             }
         }
         default: {
