@@ -1,8 +1,9 @@
-import { act } from "react-dom/test-utils";
+import CONSTANTS from '../constants';
+const {ACTIONS} = CONSTANTS;
 
 export const reducer = (state, action) => {
     switch(action.type) {
-        case 'DATA_LOAD_SUCCESS': {
+        case ACTIONS.DATA_LOAD_SUCCESS: {
             const {data: {comments}} = action;
             const newState = {
                 ...state,
@@ -10,14 +11,14 @@ export const reducer = (state, action) => {
             }
             return newState;
         }
-        case 'DATA_LOAD_ERROR': {
+        case ACTIONS.DATA_LOAD_ERROR: {
             const {error} = action;
             return {
                 ...state,
                 error
             }
         }
-        case 'SEND_MESSAGE':{
+        case ACTIONS.SEND_MESSAGE:{
             const {message: {body, user}} = action;
             const newArrayMessage = [...state.messages, {
                 body,

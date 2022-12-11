@@ -1,0 +1,9 @@
+const CONSTANTS = {
+    ACTIONS: {
+        DATA_LOAD_SUCCESS: 'DATA_LOAD_SUCCESS',
+        DATA_LOAD_ERROR: 'DATA_LOAD_ERROR',
+        SEND_MESSAGE: 'SEND_MESSAGE'
+    }
+}
+
+export default CONSTANTS;

@@ -5,7 +5,9 @@ import MessageArea from '../MessageArea';
 import styles from './Dashboard.module.css';
 import { getMessanges } from '../../api/getMessanger';
 import UserContext from '../../contexts/UserContext';
-import {reducer} from '../../reducers'
+import {reducer} from '../../reducers';
+import CONSTANTS from '../../constants';;
+const {ACTIONS} = CONSTANTS;
 
 const Dashboard = () => {
 
@@ -25,14 +27,14 @@ const Dashboard = () => {
         getMessanges()
         .then(data=>{
             const action = {
-                type: 'DATA_LOAD_SUCCESS',
+                type: ACTIONS.DATA_LOAD_SUCCESS,
                 data
             }
             dispatch(action);
         })
         .catch(error=>{
             const action = {
-                type: 'DATA_LOAD_ERROR',
+                type: ACTIONS.DATA_LOAD_ERROR,
                 error
             }
             dispatch(action)
@@ -41,7 +43,7 @@ const Dashboard = () => {
 
     const addNewMessage = (data) => {
         const action = {
-            type: 'SEND_MESSAGE',
+            type: ACTIONS.SEND_MESSAGE,
             message: {
                 body: data,
                 user
