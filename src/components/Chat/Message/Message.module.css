@@ -35,3 +35,9 @@
     font-size: 0.6em;
     color: lightslategray;
 }
+
+.user-message-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 15px 0;
+}

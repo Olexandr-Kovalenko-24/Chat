@@ -12,7 +12,7 @@ const {ACTIONS} = CONSTANTS;
 const Dashboard = () => {
 
     const [user, setUser] = useState({
-        id: 1,
+        id: 0,
         username: 'John Doe',
         imageSrc: './placeholder.jpg'
     });
@@ -20,7 +20,6 @@ const Dashboard = () => {
     const [state, dispatch] = useReducer(reducer, {
         messages: [],
         error: null,
-        answer: []
     });
 
     useEffect(() => {

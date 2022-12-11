@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Message.module.css';
 import { format } from 'date-fns';
+import cx from 'classnames';
 
 const Message = (props) => {
     const { message: { id, body, postId, date, user: {username, imageSrc} } } = props;
@@ -8,8 +9,13 @@ const Message = (props) => {
     const imgSrc = imageSrc ? imageSrc : './avatar.webp';
     const messageDate = date ? date : new Date();
 
+    const cn = cx({
+        [styles['message-wrapper']]: body,
+        [styles['user-message-wrapper']]: username === 'John Doe'
+    })
+    
     return (
-        <section className={styles['message-wrapper']}>
+        <section className={cn}>
             <img src={imgSrc} className={styles['message-author-image']} />
             <div className={styles['text-wrapper']}>
                 <span className={styles['username']}>{username}</span>
