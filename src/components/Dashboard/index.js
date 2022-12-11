@@ -11,7 +11,7 @@ const Dashboard = () => {
 
     const [user, setUser] = useState({
         id: 1,
-        userName: 'John Doe',
+        username: 'John Doe',
         imageSrc: './placeholder.jpg'
     });
 

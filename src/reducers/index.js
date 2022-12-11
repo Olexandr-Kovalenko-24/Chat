@@ -22,8 +22,8 @@ export const reducer = (state, action) => {
             const newArrayMessage = [...state.messages, {
                 body,
                 user,
-                id: state.messages.length
-            }]
+                id: (state.messages.length+1)
+            }];
             return {
                 ...state,
                 messages: newArrayMessage

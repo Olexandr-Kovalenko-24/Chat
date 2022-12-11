@@ -8,6 +8,12 @@ const MessageArea = (props) => {
         setInputMessage(value)
     }
 
+    const enterSubmit = event => {
+        if(event.keyCode === 13){
+            handleSubmit(event);
+        }
+    }
+
     const handleSubmit = event => {
         event.preventDefault();
         props.sendMessage(inputMessage);
@@ -17,10 +23,11 @@ const MessageArea = (props) => {
     return (
         <div className={styles.container}>
             <form onSubmit={handleSubmit} className={styles['form-wrapper']}>
-                <textarea 
+                <textarea onKeyDown={enterSubmit}
                     value={inputMessage}
                     onChange={handleChange}
-                    className={styles['input']}
+                    className={styles['input']
+                }
                     />
                 <button type="submit" className={styles['submit-btn']}>	
                     &#10148;
