@@ -1,4 +1,6 @@
 .container {
     width: 20vw;
     background-color: bisque;
+    overflow: hidden;
+    overflow-y: scroll;
 }

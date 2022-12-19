@@ -54,7 +54,7 @@ const Dashboard = () => {
         <UserContext.Provider value={user}>
             <main className={styles.container}>
                 {state.error && <div>Ooops! Error happening</div>}
-                <DialoList />
+                <DialoList messages={state.messages} />
                 <div className={styles['chat-wrapper']}>
                     <Chat messages={state.messages}/>
                     <MessageArea sendMessage={addNewMessage}/>
